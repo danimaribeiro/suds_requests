@@ -6,7 +6,10 @@ import traceback
 try:
     import cStringIO as StringIO
 except ImportError:
-    import StringIO
+    try:
+        import StringIO
+    except ImportError:
+        from io import StringIO  # python 3.x
 
 
 __all__ = ['RequestsTransport']
@@ -31,6 +34,7 @@ def handle_errors(f):
 
 
 class RequestsTransport(transport.Transport):
+
     def __init__(self, session=None):
         transport.Transport.__init__(self)
         self._session = session or requests.Session()

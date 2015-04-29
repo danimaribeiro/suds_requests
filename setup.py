@@ -8,5 +8,5 @@ setup(
     author='Jason Michalski',
     author_email='armooo@armooo.net',
     py_modules=['suds_requests'],
-    install_requires=['requests', 'suds'],
+    install_requires=['requests', 'suds-jurko'],
 )
