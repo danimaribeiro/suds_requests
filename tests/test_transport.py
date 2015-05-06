@@ -1,4 +1,4 @@
-import mock
+import unittest.mock as mock
 import suds.transport
 
 import suds_requests
