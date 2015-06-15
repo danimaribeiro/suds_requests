@@ -7,6 +7,7 @@ try:
     from StringIO import StringIO
 except ImportError:
     from io import StringIO
+    from io import BytesIO
 
 __all__ = ['RequestsTransport']
 
@@ -37,7 +38,9 @@ class RequestsTransport(transport.Transport):
     @handle_errors
     def open(self, request):
         resp = self._session.get(request.url)
-        return StringIO(resp.content)
+        print(resp.content)
+        # return StringIO(resp.content)
+        return BytesIO(resp.content)
 
     @handle_errors
     def send(self, request):
