@@ -2,6 +2,8 @@ import functools
 import requests
 import suds.transport as transport
 import traceback
+import logging
+import sys
 
 try:
     from StringIO import StringIO
@@ -31,15 +33,18 @@ def handle_errors(f):
 
 
 class RequestsTransport(transport.Transport):
+
     def __init__(self, session=None):
         transport.Transport.__init__(self)
         self._session = session or requests.Session()
 
+        self.log = logging.getLogger('custom_transport')
+        self.log.setLevel(logging.DEBUG)
+        # self.log.addHandler(logging.StreamHandler(sys.stdout))
+
     @handle_errors
     def open(self, request):
         resp = self._session.get(request.url)
-        print(resp.content)
-        # return StringIO(resp.content)
         return BytesIO(resp.content)
 
     @handle_errors
@@ -49,6 +54,13 @@ class RequestsTransport(transport.Transport):
             data=request.message,
             headers=request.headers,
         )
+
+        self.log.debug('Request HEADERS: {}'.format(request.headers))
+        self.log.debug('Request URL: {}'.format(request.url))
+        self.log.debug('Request message: {}'.format(request.message))
+
+        print(request.message)
+
         return transport.Reply(
             resp.status_code,
             resp.headers,
