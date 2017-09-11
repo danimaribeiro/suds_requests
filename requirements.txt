@@ -1,0 +1,5 @@
+requests
+suds-jurko
+pytest
+pytest-cov
+coveralls

@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(
-    name='suds_requests',
+    name='suds-jurko-requests',
     version='0.1',
     description=open('README.rst').read(),
     author='Jason Michalski',
