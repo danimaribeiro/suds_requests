@@ -1,18 +1,18 @@
-import unittest.mock as mock
 import suds.transport
 
-import suds_requests
+from unittest import mock
+from suds_requests import RequestsTransport
 
 
 def test_open():
     session = mock.Mock()
     session.get.return_value.content = 'abc123'
-    transport = suds_requests.RequestsTransport(session)
+    transport = RequestsTransport(session)
     request = suds.transport.Request('http://url')
 
     response = transport.open(request)
 
-    assert response.read() == 'abc123'
+    assert response.read() == b'abc123'
 
 
 def test_send():
@@ -23,7 +23,7 @@ def test_send():
         2: 'B',
     }
     session.post.return_value.status_code = 200
-    transport = suds_requests.RequestsTransport(session)
+    transport = RequestsTransport(session)
     request = suds.transport.Request(
         'http://url',
         'I AM SOAP! WHY AM I NOT CLEAN!!!',

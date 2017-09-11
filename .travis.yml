@@ -1,23 +1,20 @@
 language: python
 python:
-- "2.7"
-- "3.4"
-- "3.5"
-- "3.6"
+- '3.4'
+- '3.5'
+- '3.6'
 virtual_env:
   system_site_packages: true
 install:
 - pip install --upgrade pip
 - pip install -r requirements.txt
-script:
-    pytest --cov=suds_requests
-after_success:
-    coveralls
+script: pytest --cov=suds_requests
 deploy:
   provider: pypi
   user: danimaribeiro
   password:
-    secure: wV+DH+WVji4qyCRXxugOsu8/u9MgUN9YggIBozh2Si1z6OlONZVr/oCaJDW8UD+Qg0EF87RbHuEmmlpAZVERAZv5uGsxjSO/NyvAsr99sOlTy9TSLi6TLp4aPnOCgjBTFDWkwkNyDTGYGNfendS7KO2jaHUsr/eDZcpTz42lOfDgpmccz822wwI6Uu1hNC61qlskPkKVzFhHT61/XAgmjHvw1wAMWVmv9/E6J8VAlZoI9/v3K0RTRisB/+0+sSvY86crYyuW/zIEhQJnMu/gfFWDSxNdY+0S3VyFgERn5S7IYlpBPUUlukX5aPXy+OQD2ygeu7w9f6aOSaJZsoyhe4pPXDjA9XNyfiazuZrz51fzhricMvdsMPAcukK/sJzGICAFgOutAjy+nGBkNqA2genKL8gMtJGUrPW5Yq5MGMC7FEgEQi5SgEj+01FgSY5mHlR3qo9bEgXWcxhNL/uZ3C1ElnGNLbyn5hjWzCnMEe70JwfWNQxGgtNm73vrrsZJ7M5wGjrEKVAvTERQegRQm2ObX7YsPmTY+tF15Hxs8GiZ0T/MzpxGe6yAkIutKI0CxpoUMXBnrmcMbn74GT8KWQjS724AA3K5ePO5ogLECxIq3huyB9USeeXmYBhUtcLpKSSH7gA/8vT/tvXK0+/YNTKzIIrOjuZ9IOVrwq2PyUY=
+    secure: SUMU/mAG/ofULKS598pW7coNYAinf/99EggHht+S8JEYVJNI7tWJ5Pxp2X/BzF/dC8DXOIlC1GKgcI2PKUo3Y7Ih8naxOew0eT4/EQpug17xSwx/6pQ0FSawJgT23/x21nhSAJsek239lWlKY5Gs6NnicwyYqLWl0pwgiGUALtKMZws7WPPD1B8Xp9i6TaqniXGZ58Z+Y2AL02goVXTqzl4Nmzg7qsQOYMLUsNV/8cljnq4ykvHqWXEn3937eX0sLAPtHNXi1wNfWqjzSUqQpCh1gwhVZOk5rYsOwKCdMHJAtj0Uzz9gUYLeg1XikhI+BEufPmL6nBn4WbVYUBBlkaDBG1On1aOrLNAFLFYrQqeUF2w2KVoaUY6iUYAdwttVdRJ2zuvTaghlhePEI86+1EB6lwMpzo23Q03hBLMao+yPMonFIWbT/KCZKiPlDraoKfr/nnWbS9HbMECz4JnAQpWI/0avydCB7y5ZlsPLfMw2NrjobhcnunqevpG3G+XhqP04CSJ0qbWALVv2RZJuRAxIXMPLY3l6N8Nz94lgHUB/lXn3cEWgSkEKBRFwAIP+18j2MwuaucpXEH5Fwp8V9Ll4wk+0Z8V/wCTAf4KGRtDJf3R/h4VQ4+EmhGCW1s01MCx69Pk1LMq7Y3FtLXyJAeQ05hz4Pbj5OvJC05LVn+M=
   on:
+    distributions: bdist_wheel
+    repo: danimaribeiro/suds_requests
     branch: master
-  distributions: "bdist_wheel"

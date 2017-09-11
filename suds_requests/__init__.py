@@ -38,7 +38,7 @@ class RequestsTransport(transport.Transport):
     @handle_errors
     def open(self, request):
         resp = self._session.get(request.url)
-        return BytesIO(resp.content)
+        return BytesIO(resp.content.encode())
 
     @handle_errors
     def send(self, request):
