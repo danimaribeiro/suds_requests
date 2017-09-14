@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='suds-jurko-requests',
-    version='1.0',
+    version='1.1',
     description=open('README.rst').read(),
     author='Jason Michalski',
     author_email='armooo@armooo.net',

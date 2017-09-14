@@ -3,10 +3,7 @@ import requests
 import suds.transport as transport
 import traceback
 
-try:
-    from StringIO import StringIO
-except ImportError:
-    from io import BytesIO
+from io import BytesIO
 
 __all__ = ['RequestsTransport']
 
