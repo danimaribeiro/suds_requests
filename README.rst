@@ -1,6 +1,10 @@
 suds_requests
 =============
 
+.. image:: https://badge.fury.io/py/suds-jurko-requests.svg
+    :target: https://badge.fury.io/py/suds-jurko-requests
+
+
 suds_requests is a suds transport implemented with requests. This lets you use
 all of the goodness of requests (connection pooling, simple auth, etc.) along
 with the pain of soap.
