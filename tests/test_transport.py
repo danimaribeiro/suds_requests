@@ -6,7 +6,7 @@ from suds_requests import RequestsTransport
 
 def test_open():
     session = mock.Mock()
-    session.get.return_value.content = 'abc123'
+    session.get.return_value.content = b'abc123'
     transport = RequestsTransport(session)
     request = suds.transport.Request('http://url')
 
